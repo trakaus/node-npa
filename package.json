@@ -1,8 +1,8 @@
 {
   "name": "node-npa",
   "version": "0.2.0",
-  "license": "GNU General Public Liscense v3.0",
-  "description": "Cadence Messaging(Connectors): Manages the dispatch of messages across different message provider types (SMS, Email, APNS, etc.)",
+  "license": "GPL-3.0",
+  "description": "This is a research project for node.js to create a universal persistence api that attempts to standardize the access to databases inspired by the Java Persistence API. It is written in JavaScript, does not require compiling, and is GNU v3.0 licensed.",
   "homepage": "https://github.com/trakaus/node-npa",
   "keywords": [
     "orm",
@@ -13,14 +13,9 @@
     "dispatch",
     "api"
   ],
-  "author": {
-    "name": "Ryan Walker",
-    "email": "ryan.walker at lazarussoftware dot com"
-  },
+  "author": "Ryan Walker <ryan.walker at lazarussoftware dot com>",
   "contributors": [
-    {
-      "name": "** be the first **"
-    }
+    "** be the first **"
   ],
   "dependencies": {
     "config": "^1.14.0",
@@ -35,5 +30,9 @@
   },
   "engines": {
     "node": ">=0.12.6"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
