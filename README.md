@@ -20,11 +20,47 @@ It is written in JavaScript, does not require compiling, and is GNU v3.0 license
 
 Note: Current build only supports MySQL 5.x but will be adding support for other RDBMS in the near future.
 
+node-npa relies on node-config for the database parameter configurations. Setup your default.json, stage.json & production.json files with to contain the following json layout:
+
+```js
+{
+    // orm configs
+    "connectors": {
+        "schema": {
+            "host":"{host}",
+            "port":{port},
+            "user":"{username}",
+            "pwd":"{password}",
+            "db":"{datbase-name}",
+            "flags":"{connection-flags}",
+            "debug":true|false
+        }
+    }
+}
+```
+
+node-npa will not make assumptions on these parameters.
+
 Here is an example on how to use it:
 
 ```js
-var factory 	= require('npa');
-var entityMngr  = factory.getSchemaManager(factory.engines.mysql);
-
-// more coming soon...
+var npa 	= require('npa')({ engine: 'mysql' });
+var entityMngr  = npa.getEntityManager();
 ```
+-- or --
+
+```js
+var npa 	= require('npa');
+var entityMngr  = npa({ engine: 'mysql' }).getEntityManager();
+```
+-- or --
+
+```js
+var npa 	= require('npa');
+var entityMngr  = npa().getEntityManager();
+```
+
+## Todo
+
+* Move all statements to a transaction model.
+* Full node-mysql support in a JPA fashion.
