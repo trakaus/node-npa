@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "config": "^1.14.0",
-    "mysql": "^2.7.0"
+    "mysql": "^2.7.0",
+    "uuid": "^2.0.1"
   },
   "repository": {
     "type": "git",
