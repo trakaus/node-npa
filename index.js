@@ -9,7 +9,7 @@ module.exports = function( options ) {
 	}
 
 	return {
-		factory: factory,
+		paths: factory.paths,
 		
 		getEntityManager: function( ) {
 			return factory.getSchemaManager( options.engine );
