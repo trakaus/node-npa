@@ -26,7 +26,9 @@ node-npa relies on node-config for the database parameter configurations. Setup 
 {
     // orm configs
     "connectors": {
-        "schema": {
+        "schemas": [{
+	        "name":"{config-name}",
+	        "type":"mysql",
             "host":"{host}",
             "port":{port},
             "user":"{username}",
@@ -34,8 +36,24 @@ node-npa relies on node-config for the database parameter configurations. Setup 
             "db":"{datbase-name}",
             "flags":"{connection-flags}",
             "debug":true|false
-        }
-    }
+        }]
+    },
+    
+    // orm & api builder params
+    "paths": {
+	    "orm": {
+		    "base": "{root-path}",
+		    "targets": [
+			    "{one-for-each-schema}"
+			]
+		},
+		"routes": {
+			"base": "{root-path}",
+			"targets": [
+				"{one-for-each-schema}"
+			]
+		}
+	}
 }
 ```
 
@@ -44,21 +62,17 @@ node-npa will not make assumptions on these parameters.
 Here is an example on how to use it:
 
 ```js
-var npa 	= require('npa')({ engine: 'mysql' });
+var npa 	= require('npa')();
 var entityMngr  = npa.getEntityManager();
 ```
 -- or --
 
 ```js
 var npa 	= require('npa');
-var entityMngr  = npa({ engine: 'mysql' }).getEntityManager();
+var entityMngr  = npa().getEntityManager('{optional-config-name}');
 ```
--- or --
 
-```js
-var npa 	= require('npa');
-var entityMngr  = npa().getEntityManager();
-```
+If the ** {optional-config-name} ** is not supplied, the first configuration is assumed.
 
 ## Todo
 
