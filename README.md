@@ -20,7 +20,7 @@ It is written in JavaScript, does not require compiling, and is GNU v3.0 license
 
 Note: Current build only supports MySQL 5.x but will be adding support for other RDBMS in the near future.
 
-node-npa relies on node-config for the database parameter configurations. Setup your default.json, stage.json & production.json files with to contain the following json layout:
+node-npa relies on node-config for the database parameter configurations. Setup your default.json, stage.json & production.json files with the following json layout:
 
 ```js
 {
@@ -28,7 +28,7 @@ node-npa relies on node-config for the database parameter configurations. Setup 
     "connectors": {
         "schemas": [{
 	        "name":"{config-name}",
-	        "type":"mysql",
+	        "type":"mysql|postgress",
             "host":"{host}",
             "port":{port},
             "user":"{username}",
@@ -72,7 +72,7 @@ var npa 	= require('npa');
 var entityMngr  = npa().getEntityManager('{optional-config-name}');
 ```
 
-If the ** {optional-config-name} ** is not supplied, the first configuration is assumed.
+If the {optional-config-name} is not supplied, the first configuration is assumed.
 
 ## Todo
 
